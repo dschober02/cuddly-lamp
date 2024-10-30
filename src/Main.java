@@ -45,8 +45,8 @@ class Stuff<T> {
     }
     public boolean findItem(T item){
         boolean found = false;
-        int idx = 0;
-        while (!found && idx++ < _thing.size() ) {
+        int idx = -1;
+        while (!found && ++idx < _thing.size() ) {
             if (_thing.get(idx).equals(item))
                 found = true;
         }
@@ -62,6 +62,8 @@ class Stuff<T> {
 public class Main{
     public static void main(String[] args) {
         Stuff<Test> s = new Stuff<>();
+        s.addItem(new Test(1));
+        Test t = new Test(1);
+        System.out.println(s.findItem(t));
     }
-
 }
